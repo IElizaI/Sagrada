@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import RowPatternStainedGlass from '../RowPatternStainedGlass/RowPatternStainedGlass';
 import './PatternStainedGlass.css';
-import { StainedGlass } from '../../../../constans/constans';
+import { getApiUrl, StainedGlass } from '../../../../constans/constans';
 import axios from 'axios';
 
 const PatternStainedGlass = () => {
@@ -21,6 +21,7 @@ const PatternStainedGlass = () => {
   let desiredStainedGlassId = StainedGlass.find(
     (elem) => elem.id === Number(playerStainedGlassId.slice(0, -1))
   );
+
   desiredStainedGlassId =
     playerStainedGlassId.slice(-1) === 'a'
       ? desiredStainedGlassId.pattern1.pattern
@@ -28,7 +29,7 @@ const PatternStainedGlass = () => {
 
   const handlePass = async () => {
     await axios.post(
-      'http://localhost:3001/game/cube/stained_glass',
+      getApiUrl('/game/cube/stained_glass'),
       {
         gameId: lobby.id,
         pass: 'pass',
@@ -53,7 +54,9 @@ const PatternStainedGlass = () => {
         {currentStainedGlass.title}
       </p>
       {activePlayer === user && rounds.length !== 10 ? (
-        <button onClick={handlePass}>Пропустить ход</button>
+        <button className="btn-pass" onClick={handlePass}>
+          Пропустить ход
+        </button>
       ) : (
         ''
       )}

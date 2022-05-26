@@ -1,20 +1,14 @@
 .btn-instruments {
   outline: none;
   border: 1px solid black;
-  background-color: #fff;
+  background-color: rgb(216, 216, 216);
   width: 150px;
   height: 40px;
+  cursor: default !important;
   font-size: 1rem;
-  cursor: pointer;
+  border-radius: 3px;
+  margin: 3px;
   transition: .5s;
-}
-
-.btn-instruments:hover {
-  background-color: bisque;
-}
-.btn-instruments:active {
-  transition: none;
-  font-weight: 700;
 }
 
 .btn-instruments-close {

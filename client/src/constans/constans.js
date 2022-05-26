@@ -1,8 +1,8 @@
 import personalGoal1 from '../img/personal-goals/personalGoal0.jpg';
-import personalGoal2 from '../img/personal-goals/personalGoal1.jpg';
+import personalGoal2 from '../img/personal-goals/personalGoal3.jpg';
 import personalGoal3 from '../img/personal-goals/personalGoal2.jpg';
-import personalGoal4 from '../img/personal-goals/personalGoal3.jpg';
-import personalGoal5 from '../img/personal-goals/personalGoal4.jpg';
+import personalGoal4 from '../img/personal-goals/personalGoal4.jpg';
+import personalGoal5 from '../img/personal-goals/personalGoal1.jpg';
 
 import window1Front from '../img/stained-glass/window0Front.jpg';
 import window1Rear from '../img/stained-glass/window0Rear.jpg';
@@ -56,6 +56,10 @@ import cellGreen from '../img/cells/green.jpg';
 import cellPurple from '../img/cells/purple.jpg';
 import cellRed from '../img/cells/red.jpg';
 import cellYellow from '../img/cells/yellow.jpg';
+
+const SERVER_IP = 'http://localhost:3001';
+
+export const getApiUrl = (suffix) => SERVER_IP + suffix;
 
 export const CubeColors = {
   BLUE: 'blue',

@@ -12,14 +12,6 @@ const Socket = () => {
       socket.off(room);
     },
   };
-  //   console.log(params);
-  //   if (params.id) {
-  //     console.log('CONNECT SOCKET ROOM');
-  //     socket.on(`${params.id}_play_${login}`, (data) => {
-  //       console.log(data);
-  //     });
-  //   }
-  // }, []);
 };
 
 export default Socket();

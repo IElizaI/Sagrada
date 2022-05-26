@@ -2,16 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border: 2px solid black;
   background-color: #ffffff;
   cursor: pointer;
+  position: relative;
 }
 
 .container-cell img {
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 
 .dice-in-cell {
@@ -20,6 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(44, 44, 44);
+  position: absolute;
+  /* background-color: rgb(56, 56, 56); */
 }
 

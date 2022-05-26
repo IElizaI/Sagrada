@@ -32,3 +32,4 @@ export const addPatternsToPlayers = createAction(
 
 export const setPlayerPattern = createAction('game/players/pattern/set');
 export const removeGame = createAction('game/remove');
+export const addPlayerPoints = createAction('game/player_points/add');

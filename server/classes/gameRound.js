@@ -90,14 +90,10 @@ class Rounds {
   }
 
   setPlayerSelectedPattern(gameId, playerId, patternId) {
-    console.log(gameId, playerId, patternId);
-    console.log('this.gameRounds', this.gameRounds);
     if (this.gameRounds[gameId]) {
-      console.log('kkjkjkjk');
       const player = this.gameRounds[gameId].players.find(
         (elem) => elem.id === playerId
       );
-      console.log('player', player);
       if (player) {
         this.gameRounds[gameId].players = this.gameRounds[gameId].players.map(
           (elem) => {
@@ -116,7 +112,6 @@ class Rounds {
 
   isAllPatternsSelected(gameId) {
     const { players } = this.gameRounds[gameId];
-    console.log('players', players);
     return players.every((player) => player.selectedPattern);
   }
 
@@ -126,7 +121,6 @@ class Rounds {
 
   static randomArrayElement(min, max, arrayAvailableCubes) {
     const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(randomNum, max, min);
     return arrayAvailableCubes[randomNum];
   }
 
@@ -256,20 +250,40 @@ class Rounds {
   }
 
   nextActivePlayer(gameId) {
+    let queue = this.gameRounds[gameId].playersQueue;
+    // console.log(queue);
     if (this.gameRounds[gameId].playersQueue.length > 0) {
+      if (
+        this.gameRounds[gameId].playersQueue.length > 1 &&
+        this.gameRounds[gameId].playersQueue[0].length === 0
+      ) {
+        console.log('NEXT ROUND');
+        this.nextRound(gameId);
+      }
+      // console.log('CLEAR', queue[0], queue[0].length === 0);
+      if (this.gameRounds[gameId].playersQueue[0].length === 0) {
+        this.gameRounds[gameId].playersQueue =
+          this.gameRounds[gameId].playersQueue.slice(1);
+      }
+
+      if (this.gameRounds[gameId].playersQueue.length === 0) {
+        console.log('GAME END');
+        this.gameEnd(gameId);
+        return null;
+      }
+
       const first = this.gameRounds[gameId].playersQueue[0][0];
       this.gameRounds[gameId].playersQueue[0] =
         this.gameRounds[gameId].playersQueue[0].slice(1);
 
-      if (this.gameRounds[gameId].playersQueue[0].length === 0) {
-        this.gameRounds[gameId].playersQueue =
-          this.gameRounds[gameId].playersQueue.slice(1);
-        if (this.gameRounds[gameId].playersQueue.length > 0) {
-          this.nextRound(gameId);
-        } else {
-          this.gameEnd(gameId);
-        }
-      }
+      // this.nextRound(gameId);
+      // if (queue[0].length === 0) {
+      //   queue = queue.slice(1);
+      //   if (queue.length > 0) {
+      //   } else {
+      //     this.gameEnd(gameId);
+      //   }
+      // }
       this.gameRounds[gameId].activePlayer = first;
       return first;
     }
@@ -283,10 +297,11 @@ class Rounds {
 
   moveRestCubeToRound(gameId) {
     const reserve = this.getReserve(gameId);
-    this.gameRounds[gameId].rounds = [
-      ...this.gameRounds[gameId].rounds,
-      reserve[0],
-    ];
+    if (reserve)
+      this.gameRounds[gameId].rounds = [
+        ...this.gameRounds[gameId].rounds,
+        reserve[0],
+      ];
   }
 
   nextRound(gameId) {

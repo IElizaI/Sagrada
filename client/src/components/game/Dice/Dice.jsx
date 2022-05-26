@@ -6,19 +6,19 @@ export default function Dice(props) {
 
   switch (props.color) {
     case 'blue':
-      color = 'rgb(71, 197, 255)';
+      color = 'rgba(71, 197, 255, 0.9)';
       break;
     case 'purple':
-      color = 'rgb(186, 65, 220)';
+      color = 'rgba(186, 65, 220, 0.9)';
       break;
     case 'green':
-      color = 'rgb(53, 148, 43)';
+      color = 'rgba(53, 148, 43, 0.9)';
       break;
     case 'red':
-      color = 'rgb(224, 9, 9)';
+      color = 'rgba(224, 9, 9, 0.9)';
       break;
     case 'yellow':
-      color = 'rgb(237, 237, 57)';
+      color = 'rgba(237, 237, 57, 0.9)';
       break;
     default:
       color = 'black';

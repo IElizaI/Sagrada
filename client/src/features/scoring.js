@@ -22,8 +22,7 @@ export const countPersonalGoalPoints = (id, pattern) => {
     default:
       break;
   }
-
-  const score = pattern.flat().filter((cube) => cube.color === color);
+  const score = pattern.flat().filter((cube) => cube && cube.color === color);
   return score.length;
 };
 
@@ -85,7 +84,6 @@ export const countCommonGoals = (goal, pattern) => {
       return scoreCells.length;
     case 2:
       const score = [];
-      console.log(CubeColors.RED);
       score.push(
         pattern.flat().filter((cube) => {
           return cube && cube.color === CubeColors.RED;
@@ -109,7 +107,6 @@ export const countCommonGoals = (goal, pattern) => {
           .flat()
           .filter((cube) => cube && cube.color === CubeColors.PURPLE).length
       );
-      console.log(score);
       if (score.length === 5) {
         score.sort((a, b) => b - a);
         return score[score.length - 1] * goal.points;

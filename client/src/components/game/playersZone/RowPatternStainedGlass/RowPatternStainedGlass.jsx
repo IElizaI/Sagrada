@@ -4,7 +4,6 @@ import CellPatternStainedGlass from '../CellPatternStainedGlass/CellPatternStain
 import './RowPatternStainedGlass.css';
 
 const RowPatternStainedGlass = ({ patternRow, row, cubes }) => {
-  // console.log(patternRow);
   return (
     <div className="container-row-cells">
       {patternRow.map((cell, index) => (
