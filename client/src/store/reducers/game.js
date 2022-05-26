@@ -5,14 +5,7 @@ import * as actions from '../actions/game';
 const initialState = {
   rounds: [],
   players: null,
-  cubes: [
-    { color: CubeColors.BLUE, count: 18 },
-    { color: CubeColors.GREEN, count: 18 },
-    { color: CubeColors.PURPLE, count: 18 },
-    { color: CubeColors.RED, count: 18 },
-    { color: CubeColors.YELLOW, count: 18 },
-  ],
-  activePlayer: 'liza',
+  activePlayer: null,
   commonGoals: [],
   droppedСubes: null,
   instruments: [],
@@ -46,7 +39,6 @@ const game = createReducer(initialState, (builder) => {
     console.log('--------------------------------------', action.payload);
     state.droppedСubes = action.payload;
   });
-  // action принимает payload с массивом общих целей c ключами id title text points src
   builder.addCase(actions.setCommonGoals, (state, action) => {
     state.commonGoals = action.payload;
   });
@@ -87,12 +79,6 @@ const game = createReducer(initialState, (builder) => {
     const restedCubes = state.droppedСubes.filter(
       (_, index) => index !== needIndex
     );
-    // const oneCube = state.droppedСubes.filter((cube) => {
-    //   return (
-    //     cube.color !== action.payload.color &&
-    //     cube.number !== action.payload.number
-    //   );
-    // });
     state.droppedСubes = restedCubes;
   });
   builder.addCase(actions.setPlayers, (state, action) => {
@@ -121,6 +107,18 @@ const game = createReducer(initialState, (builder) => {
       }
       return player;
     });
+  });
+  builder.addCase(actions.addDroppedCube, (state, action) => {
+    state.droppedСubes.push(action.payload);
+  });
+  builder.addCase(actions.removeGame, (state) => {
+    state.rounds = [];
+    state.players = null;
+    state.activePlayer = null;
+    state.commonGoals = [];
+    state.droppedСubes = null;
+    state.instruments = [];
+    state.stainedGlass = [];
   });
 });
 

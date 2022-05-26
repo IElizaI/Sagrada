@@ -66,12 +66,12 @@ export const CubeColors = {
 };
 
 export const CubeNumbers = {
-  ONE: 'one',
-  TWO: 'two',
-  THREE: 'three',
-  FOUR: 'four',
-  FIVE: 'five',
-  SIX: 'six',
+  ONE: 1,
+  TWO: 2,
+  THREE: 3,
+  FOUR: 4,
+  FIVE: 5,
+  SIX: 6,
 };
 
 export const PersonalGoals = [

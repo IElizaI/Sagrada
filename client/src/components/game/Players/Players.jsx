@@ -77,7 +77,6 @@ const Players = () => {
     <>
       <div className={classes.topnav}>
         <Link to="/">На главную</Link>
-        <Link to="/logout">Выйти</Link>
         <p>{lobby ? `Игра: ${lobby.id}` : 'id игры'}</p>
         <p>{user.login}</p>
       </div>

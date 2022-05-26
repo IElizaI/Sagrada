@@ -1,9 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './PersonalGoal.css';
+import { PersonalGoals } from '../../../../constans/constans';
 
 const PersonalGoal = () => {
-  const statePersonalGoal = useSelector((state) => state.player.personalGoal);
+  const statePersonalGoalId = useSelector((state) => state.player.personalGoal);
+  const statePersonalGoal = PersonalGoals.find(
+    (goal) => goal.id === statePersonalGoalId
+  );
   return (
     <div className="container-personal-goal">
       <img

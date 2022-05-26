@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { randomPersonalGoal } from '../../../../features/gameFeatures';
-import { PersonalGoals } from '../../../../constans/constans';
-import { setPersonalGoal } from '../../../../store/actions/player';
 import './ButtonPersonalGoal.css';
 import PersonalGoal from '../PersonalGoal/PersonalGoal';
 
@@ -23,11 +20,6 @@ const customStyles = {
 const ButtonPersonalGoal = () => {
   const dispatch = useDispatch();
   const statePersonalGoal = useSelector((state) => state.player.personalGoal);
-
-  useEffect(() => {
-    const goal = randomPersonalGoal(PersonalGoals);
-    dispatch(setPersonalGoal(goal));
-  }, []);
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
