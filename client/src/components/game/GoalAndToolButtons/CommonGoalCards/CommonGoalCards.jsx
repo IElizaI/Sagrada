@@ -11,26 +11,7 @@ const CommonGoalCards = () => {
     stateCommonGoalsId.includes(goal.id)
   );
 
-  // let stateCommonGoals;
-  // if (stateCommonGoalsId >= 0) {
-  //   stateCommonGoals = stateCommonGoalsId.map((goal, index) => {
-  //     const currGoal = CommonGoals.find((current) => current.id === goal.id);
-  //     if (currGoal) {
-  //       return currGoal;
-  //     }
-  //   });
-  // }
-
-  console.log('stateCommonGoals', stateCommonGoals);
-
-  return (
-    // <div className="container-common-goals">
-    //   {goals.map((card) => {
-    //     return <CommonGoal card={card} key={card.id} />;
-    //   })}
-    // </div>
-    <Сarousel arrayCommonGoals={stateCommonGoals} />
-  );
+  return <Сarousel arrayCommonGoals={stateCommonGoals} />;
 };
 
 export default CommonGoalCards;

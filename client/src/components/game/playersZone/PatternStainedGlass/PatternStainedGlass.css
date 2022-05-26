@@ -3,10 +3,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px
+  border-radius: 3px;
 }
 
 .container-pattern-stained-glass-title {
   margin-top: 5px;
   font-weight: 600;
+}
+
+.btn-pass {
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
+  bottom: -30px;
+  outline: none;
+  border: 1px solid black;
+  background-color: #fff;
+}
+
+.btn-pass:active {
+  font-size: 1.rem;
 }

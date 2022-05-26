@@ -12,13 +12,14 @@ import Players from './components/game/Players/Players';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import Lobbies from './components/Lobbies/Lobbies';
+import { getApiUrl } from './constans/constans';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   const getUser = async () => {
-    const response = await axios.get('http://localhost:3001/session', {
+    const response = await axios.get(getApiUrl('/session'), {
       withCredentials: 'include',
     });
 
@@ -30,13 +31,6 @@ const App = () => {
 
   useEffect(() => {
     getUser();
-    // fetch('http://localhost:3001/session', {
-    //   credentials: 'include',
-    // })
-    //   .then((data) => data.json())
-    //   .then((user) => {
-    //     dispatch({ type: 'SET_USER', payload: user })
-    //   });
   }, []);
 
   if (loading) {

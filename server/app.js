@@ -52,10 +52,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', userRouter);
-
-// dbCheck();
-
-// app.use('/', userRouter);
 app.use('/game', gameRouter);
 
 dbCheck();

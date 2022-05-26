@@ -14,10 +14,16 @@
 
 .roundCubes {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
-  margin: 0 auto
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  max-width: 100vw;
+}
+
+.containerDice {
+  margin: 2px;
 }
 
 .dice {  
@@ -31,4 +37,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dot {
+  cursor: default;
 }

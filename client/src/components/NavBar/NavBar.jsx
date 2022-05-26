@@ -10,8 +10,8 @@ export default function NavBar() {
   return (
     <div className={classes.topnav}>
       <Link to="/">На главную</Link>
-      <p>{lobby ? `Игра: ${lobby.id}` : 'id игры'}</p>
+      <p>{lobby.id ? `Игра: ${lobby.id}` : ''}</p>
       <p>{user.login}</p>
     </div>
-  )
+  );
 }

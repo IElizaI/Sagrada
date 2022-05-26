@@ -1,13 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { StainedGlass } from '../../../../constans/constans';
 import RowPatternStainedGlass from '../RowPatternStainedGlass/RowPatternStainedGlass';
 import './StainedGlassOfOtherPlayers.css';
 
 const StainedGlassOfOtherPlayers = ({ player }) => {
-  // const spacedСubes = useSelector((state) => state.player.spacedСubes);
-  console.log(player);
-
   let desiredStainedGlassId = StainedGlass.find(
     (elem) => elem.id === Number(player.selectedPattern.slice(0, -1))
   );
@@ -26,6 +22,7 @@ const StainedGlassOfOtherPlayers = ({ player }) => {
           cubes={player.pattern[index]}
         />
       ))}
+      <div className="login">{player.login}</div>
     </div>
   );
 };

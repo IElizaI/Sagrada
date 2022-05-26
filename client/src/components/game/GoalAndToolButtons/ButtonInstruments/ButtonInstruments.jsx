@@ -39,7 +39,7 @@ const ButtonInstruments = () => {
         Инструменты
       </button>
       <Modal
-        isOpen={modalIsOpen}
+        // isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}

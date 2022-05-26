@@ -1,32 +1,16 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './Main.module.css';
 import img from '../../img/main-page/main.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import axios from 'axios';
-import { setLobby } from '../../store/actions/lobby';
+import { getApiUrl } from '../../constans/constans';
 
 const Main = () => {
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
-  // const onPlayClick = async () => {
-  //   const response = await axios.post(
-  //     'http://localhost:3001/game/lobby/create',
-  //     {},
-  //     {
-  //       withCredentials: true,
-  //     }
-  //   );
-  //   console.log(response);
-  //   dispatch(setLobby(response.data));
-  //   navigate('/lobby/' + response.data.id);
-  // };
-
   const handleLogout = async (event) => {
-    const toBack = await axios('http://localhost:3001/logout', {
+    const toBack = await axios(getApiUrl('/logout'), {
       withCredentials: true,
     });
 
@@ -40,18 +24,24 @@ const Main = () => {
       <div className={classes.mainImgDiv}>
         <img src={img} alt="sagrada-img" className={classes.mainImg} />
         <div className={classes.mainLinks}>
-          <Link to="/rules" type="button" className={classes.mainLink}>
-            Правила
-          </Link>
           {user.login ? (
             <div type="button" className={classes.mainLink}>
               Привет, {user.login}!
             </div>
           ) : (
             <Link to="/login" type="button" className={classes.mainLink}>
-              Логин
+              Войти
             </Link>
           )}
+
+          {user.login && (
+            <Link to="/lobbies" className={classes.mainLink}>
+              Играть
+            </Link>
+          )}
+          <Link to="/rules" type="button" className={classes.mainLink}>
+            Правила
+          </Link>
           {user.login ? (
             <Link
               to="/"
@@ -63,16 +53,7 @@ const Main = () => {
             </Link>
           ) : (
             <Link to="/register" className={classes.mainLink}>
-              Зарегистрироваться
-            </Link>
-          )}
-          {user.login ? (
-            <Link to="/lobbies" className={classes.mainLink}>
-              Играть
-            </Link>
-          ) : (
-            <Link to="/login" className={classes.mainLink}>
-              Играть
+              Регистрация
             </Link>
           )}
         </div>

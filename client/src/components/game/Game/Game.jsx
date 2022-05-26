@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Game.css';
 import Counter from '../Counter/Counter';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import GoalAndToolButtons from '../GoalAndToolButtons/GoalAndToolButtons';
 import ChoiceStainedGlass from '../playersZone/ChoiceStainedGlass/ChoiceStainedGlass';
 import { useDispatch, useSelector } from 'react-redux';
@@ -78,7 +78,6 @@ const Game = () => {
         dispatch(setRounds(rounds));
       }
       if (message.type === 'GAME_OVER') {
-        console.log('GAME_OVER', message.data);
         dispatch(setRounds(message.data.rounds));
         dispatch(setDroppedСubes(message.data.reserve));
         if (message.initiator === user.id) {
@@ -91,7 +90,6 @@ const Game = () => {
             })
           );
         }
-        // return <Scoring></Scoring>;
       }
     });
   }, []);
@@ -107,20 +105,16 @@ const Game = () => {
     <>
       <div className="game-page">
         <div className="game-img-div">
-          {/* <img src={img} alt="sagrada-img" className={classes.gameImg} /> */}
           <div className="nav">
             <div onClick={handleExitGame}>Выйти из игры</div>
             <p>{lobby ? `Игра: ${lobby.id}` : 'id игры'}</p>
-            <p>{user.login}</p>
+            <p>Игрок {user.login}</p>
           </div>
           <Counter />
-          {/* <ButtonCommonGoals />
-          <ButtonPersonalGoal /> */}
           <GoalAndToolButtons />
-          {/* <ActivePlayerCaption /> */}
           <RollDiceBtn />
-          {!stateStainedGlass ? <ChoiceStainedGlass /> : <PlayerZone />}
           {rounds.length === 10 ? <Scoring></Scoring> : ''}
+          {!stateStainedGlass ? <ChoiceStainedGlass /> : <PlayerZone />}
         </div>
       </div>
     </>

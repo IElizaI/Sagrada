@@ -7,30 +7,34 @@ import Input from '../UI/input/Input';
 import classes from './FormItem.module.css';
 
 const FormItem = (props) => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     mode: 'onBlur',
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-  const emailRegexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const onSubmit = (data) => {};
+  const emailRegexp =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const passwordRegexp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   const emailRegister = register('email', {
     required: 'Обязательное поле',
     pattern: {
       value: emailRegexp,
-      message: 'Email не соответствует формату электронной почты'
-    }
+      message: 'Email не соответствует формату электронной почты',
+    },
   });
 
   const passwordRegister = register('password', {
     required: 'Обязательное поле',
     pattern: {
       value: passwordRegexp,
-      message: 'Пароль должен содержать минимум восемь символов, одну букву латинского алфавита и одну цифру'
-    }
+      message:
+        'Пароль должен содержать минимум восемь символов, одну букву латинского алфавита и одну цифру',
+    },
   });
 
   return (
@@ -44,38 +48,50 @@ const FormItem = (props) => {
           placeholder={props.input.email}
         />
         <div>
-          {errors?.email && <p className={classes.errorMessage}>{errors?.email?.message}</p>}
+          {errors?.email && (
+            <p className={classes.errorMessage}>{errors?.email?.message}</p>
+          )}
         </div>
 
-        {props.formType === 'reset_password' ? ''
-          : (
-            <Input
-              {...passwordRegister}
-              id="password"
-              type="password"
-              placeholder={props.input.password}
-            />
-          )}
+        {props.formType === 'reset_password' ? (
+          ''
+        ) : (
+          <Input
+            {...passwordRegister}
+            id="password"
+            type="password"
+            placeholder={props.input.password}
+          />
+        )}
 
-        {props.formType === 'reset_password' ? ''
-          : (
-            <div>
-              {errors?.password && <p className={classes.errorMessage}>{errors?.password?.message}</p>}
-            </div>
-          )}
+        {props.formType === 'reset_password' ? (
+          ''
+        ) : (
+          <div>
+            {errors?.password && (
+              <p className={classes.errorMessage}>
+                {errors?.password?.message}
+              </p>
+            )}
+          </div>
+        )}
 
-        <Button type="submit" color="yellow">{props.button.submit}</Button>
+        <Button type="submit" color="yellow">
+          {props.button.submit}
+        </Button>
 
-        {props.formType === 'reset_password' ? ''
-          : (
-            <Link to={props.link} style={{ textDecoration: 'none' }}>
-              <Button type="button" color="white">{props.button.redirect}</Button>
-            </Link>
-          )}
-
+        {props.formType === 'reset_password' ? (
+          ''
+        ) : (
+          <Link to={props.link} style={{ textDecoration: 'none' }}>
+            <Button type="button" color="white">
+              {props.button.redirect}
+            </Button>
+          </Link>
+        )}
       </form>
     </div>
   );
-}
+};
 
 export default FormItem;

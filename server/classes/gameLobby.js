@@ -2,10 +2,8 @@ class Lobby {
   lobby = {};
 
   addGame(creator, gameId) {
-    console.log(this.lobby);
     const lobbyGameid =
       gameId || Math.max(0, ...Object.keys(this.lobby).map(Number)) + 1;
-    console.log(lobbyGameid);
     this.lobby[lobbyGameid] = {
       players: [creator],
       creator,
@@ -49,7 +47,6 @@ class Lobby {
   deletePlayer(gameId, id) {
     if (this.lobby[gameId]) {
       const player = this.lobby[gameId].players.find((elem) => elem.id === id);
-      console.log(player);
 
       if (player) {
         this.lobby[gameId].players = this.lobby[gameId].players.filter(
@@ -77,7 +74,6 @@ class Lobby {
 
     if (this.lobby[lobbyId].players.length === 0) {
       this.lobby = Object.keys(this.lobby).reduce((acc, curr) => {
-        console.log(curr, lobbyId);
         if (Number(curr) === lobbyId) {
           return acc;
         }

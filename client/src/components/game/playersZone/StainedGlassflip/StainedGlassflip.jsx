@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import './StainedGlassflip.css';
 
 const StainedGlassflip = ({ stainedGlass, onSelect }) => {
-  console.log(stainedGlass);
-  // console.log(stainedGlass);
-
   const [side, setSide] = useState(true);
 
   const handleTakeStainedGlass = async () => {
@@ -32,24 +29,5 @@ const StainedGlassflip = ({ stainedGlass, onSelect }) => {
     </div>
   );
 };
-
-// StainedGlassflip.propTypes = {
-//   stainedGlass: PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     pattern1: PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       title: PropTypes.string.isRequired,
-//       complexity: PropTypes.number.isRequired,
-//       pattern: PropTypes.arrayOf(
-//         PropTypes.arrayOf(
-//           PropTypes.oneOfType([
-//             PropTypes.string.isRequired,
-//             PropTypes.oneOf([null]).isRequired,
-//           ]).isRequired
-//         )
-//       ),
-//     }).isRequired,
-//   }),
-// };
 
 export default StainedGlassflip;

@@ -29,7 +29,10 @@ userRouter.post('/register', validateForm, async (req, res) => {
         userPassword: newUser.password,
         userLogin: newUser.login,
       };
-      res.json(req.session.user);
+      res.json({
+        id: user.id,
+        login: user.login,
+      });
     }
   } catch (error) {
     console.error(error);
@@ -51,8 +54,11 @@ userRouter.post('/login', validateLogin, async (req, res) => {
         userPassword: user.password,
         userLogin: user.login,
       };
-      res.json(req.session.user);
-      console.log(req.session.user);
+      res.json({
+        id: user.id,
+        login: user.login,
+      });
+      // console.log(req.session.user);
     } else {
       res.status(404).send({ error: 'Неправильный email и/или пароль' });
     }

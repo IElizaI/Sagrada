@@ -3,6 +3,7 @@ import './Registration.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import FormItem from '../FormItem/FormItem';
+import { getApiUrl } from '../../constans/constans';
 
 export default function Registration() {
   const inputs = useSelector((store) => store.registrationInputs);
@@ -27,7 +28,7 @@ export default function Registration() {
   const registrationHandler = async (e) => {
     e.preventDefault();
 
-    const toBack = await fetch('http://localhost:3001/register', {
+    const toBack = await fetch(getApiUrl('/register'), {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -42,9 +43,7 @@ export default function Registration() {
   };
 
   return (
-    <>
-      {/* <div>Registration</div> */}
-
+    <div className="container">
       <form onSubmit={registrationHandler} className="register-form">
         <h1 className="register-text">Регистрация</h1>
         <div className="mb-3">
@@ -113,6 +112,6 @@ export default function Registration() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }

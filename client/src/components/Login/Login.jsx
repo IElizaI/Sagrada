@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getApiUrl } from '../../constans/constans';
 import FormItem from '../FormItem/FormItem';
 import classes from './Login.module.css';
 
@@ -9,25 +10,25 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const Login = () => {
-    return (
-      <div>
-        Вход
-        <FormItem
-          title="Вход"
-          input={{ email: 'email', password: 'Пароль' }}
-          button={{ submit: 'Войти', redirect: 'Регистрация' }}
-          link="/register"
-          formType="login"
-        />
-      </div>
-    );
-  };
+  // const Login = () => {
+  //   return (
+  //     <div>
+  //       Вход
+  //       <FormItem
+  //         title="Вход"
+  //         input={{ email: 'email', password: 'Пароль' }}
+  //         button={{ submit: 'Войти', redirect: 'Регистрация' }}
+  //         link="/register"
+  //         formType="login"
+  //       />
+  //     </div>
+  //   );
+  // };
 
   const loginHandler = async (e) => {
     e.preventDefault();
 
-    const toBack = await fetch('http://localhost:3001/login', {
+    const toBack = await fetch(getApiUrl('/login'), {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -36,12 +37,11 @@ export default function Login() {
       body: JSON.stringify(inputs),
     });
     const fromBack = await toBack.json();
-    console.log('FROM BACK', fromBack.userLogin);
     dispatch({ type: 'SET_USER', payload: fromBack });
     navigate('/');
   };
   return (
-    <>
+    <div className={classes.container}>
       <form className={classes.loginForm} onSubmit={loginHandler}>
         <h1 className={classes.loginText}>Вход</h1>
         <div className="mb-3">
@@ -82,15 +82,12 @@ export default function Login() {
             }
           />
         </div>
-        {/* <button type="submit" className="btn btn-primary">
-          Войти
-        </button> */}
         <div className={classes.btnDiv}>
           <button type="submit" className={classes.btn}>
             <div>Войти</div>
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
