@@ -11,6 +11,7 @@ import {
   setLogin,
 } from '../../../store/actions/player';
 import { setPlayers } from '../../../store/actions/game';
+import NavBar from '../../NavBar/NavBar';
 
 const Players = () => {
   const navigate = useNavigate();
@@ -75,12 +76,13 @@ const Players = () => {
 
   return (
     <>
-      <div className={classes.topnav}>
+      <NavBar />
+      {/* <div className={classes.topnav}>
         <Link to="/">На главную</Link>
         <Link to="/logout">Выйти</Link>
         <p>{lobby ? `Игра: ${lobby.id}` : 'id игры'}</p>
         <p>{user.login}</p>
-      </div>
+      </div> */}
       <ol className={classes.rounded}>
         {lobby.players.map((player) => (
           <li key={player.id}>

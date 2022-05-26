@@ -2,35 +2,6 @@
 /* https://html5book.ru/krasivye-knopki-dlya-sayta-chast-3/ */
 
 
-/* --------навигационная панель------- */
-.topnav {
-  overflow: hidden;
-  background-color: rgb(61, 60, 56);
-}
-
-.topnav a {
-  float: left;
-  color: #fdfbfb;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav p {
-  float: right;
-  color: #fdfbfb;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 /* -------список-------- */
 .rounded {
   width: 60%;

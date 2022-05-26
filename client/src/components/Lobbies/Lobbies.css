@@ -25,7 +25,7 @@
   color: #fdfbfb;
   font-size: 15px;
   text-transform: uppercase;
-  background: rgb(61, 60, 56);
+  background: rgb(233, 108, 69);
   border-width: 0;
   box-shadow: 5px 5px 0 #532831;
   outline: none;
@@ -75,7 +75,7 @@
 
 .lobbies-list a {
   text-decoration: none;
-  color: #f6f6f6;
+  color: rgb(68, 67, 67);
 }
 
 .lobbies-list p {
@@ -83,8 +83,10 @@
   display: block;
   padding: .4em .4em .4em 2em;
   margin: .5em 0;
-  background: #b7b1ac;
-  color: rgb(72, 71, 71);
+  /* background: #b7b1ac; */
+  background: #ebeaea;
+  /* color: rgb(72, 71, 71); */
+  color: rgb(68, 67, 67);
   text-decoration: none;
   border-radius: .3em;
   transition: .3s ease-out;
