@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import socket from '../../features/socket';
 import { setLobbies } from '../../store/actions/lobbies';
 import { setLobby } from '../../store/actions/lobby';
+import NavBar from '../NavBar/NavBar';
 import './Lobbies.css';
 
 const Lobbies = () => {
@@ -41,15 +42,32 @@ const Lobbies = () => {
   };
 
   return (
-    <div className="container-lobbies">
-      {lobbies.map((lobby) => (
-        <Link to={'/lobby/' + lobby.id} key={lobby.id}>
-          {lobby.creator.login}'s lobby (#{lobby.id})
-        </Link>
-      ))}
+    <>
+      <NavBar />
+      <div className="container-lobbies">
+        {/* {lobbies.map((lobby) => (
+          <Link to={'/lobby/' + lobby.id} key={lobby.id}>
+            {lobby.creator.login}'s lobby (#{lobby.id})
+          </Link>
+        ))} */}
+        <ol className="lobbies-list">
+          {lobbies.map((lobby) => (
+            <li><p>
+              <Link className="lobbies-btn-text" to={'/lobby/' + lobby.id} key={lobby.id}>
+                {lobby.creator.login}'s lobby (#{lobby.id})
+              </Link>
+            </p></li>
+          ))}
+        </ol>
 
-      <div onClick={onPlayClick}>Создать лобби</div>
-    </div>
+        {/* <div onClick={onPlayClick}>Создать лобби</div> */}
+        <div className="lobbies-btn-div">
+          <button className="lobbies-btn" onClick={onPlayClick}>
+            <div>Создать лобби</div>
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 

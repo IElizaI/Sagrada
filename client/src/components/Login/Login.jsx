@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import FormItem from '../FormItem/FormItem';
+import classes from './Login.module.css';
 
 export default function Login() {
   const inputs = useSelector((store) => store.loginInputs);
@@ -11,7 +12,7 @@ export default function Login() {
   const Login = () => {
     return (
       <div>
-        Login
+        Вход
         <FormItem
           title="Вход"
           input={{ email: 'email', password: 'Пароль' }}
@@ -41,13 +42,14 @@ export default function Login() {
   };
   return (
     <>
-      <div>Login</div>
-      <form onSubmit={loginHandler}>
+      <form className={classes.loginForm} onSubmit={loginHandler}>
+        <h1 className={classes.loginText}>Вход</h1>
         <div className="mb-3">
           <label htmlFor="inputEmail" className="form-label">
-            Email address
+            Email
           </label>
           <input
+            placeholder="Введите email"
             type="email"
             name="email"
             className="form-control"
@@ -63,9 +65,10 @@ export default function Login() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputPassword" className="form-label">
-            Password
+            Пароль
           </label>
           <input
+            placeholder="Введите пароль"
             type="password"
             name="password"
             className="form-control"
@@ -79,9 +82,14 @@ export default function Login() {
             }
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        {/* <button type="submit" className="btn btn-primary">
+          Войти
+        </button> */}
+        <div className={classes.btnDiv}>
+          <button type="submit" className={classes.btn}>
+            <div>Войти</div>
+          </button>
+        </div>
       </form>
     </>
   );
