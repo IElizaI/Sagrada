@@ -43,14 +43,16 @@ export default function Registration() {
 
   return (
     <>
-      <div>Registration</div>
+      {/* <div>Registration</div> */}
 
-      <form onSubmit={registrationHandler}>
+      <form onSubmit={registrationHandler} className="register-form">
+        <h1 className="register-text">Регистрация</h1>
         <div className="mb-3">
           <label htmlFor="inputEmail" className="form-label">
-            Email address
+            Email
           </label>
           <input
+            placeholder="Введите email"
             type="email"
             name="email"
             className="form-control"
@@ -66,9 +68,10 @@ export default function Registration() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputPassword" className="form-label">
-            Password
+            Пароль
           </label>
           <input
+            placeholder="Введите пароль"
             type="password"
             name="password"
             className="form-control"
@@ -84,9 +87,10 @@ export default function Registration() {
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputLogin" className="form-label">
-            Login
+            Логин
           </label>
           <input
+            placeholder="Введите логин"
             type="login"
             name="login"
             className="form-control"
@@ -100,9 +104,14 @@ export default function Registration() {
             }
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        {/* <button type="submit" className="btn btn-primary">
           Submit
-        </button>
+        </button> */}
+        <div className="register-btn-div">
+          <button type="submit" className="register-btn">
+            <div>Зарегистрироваться</div>
+          </button>
+        </div>
       </form>
     </>
   );
