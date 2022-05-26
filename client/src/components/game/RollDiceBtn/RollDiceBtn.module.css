@@ -32,4 +32,13 @@
   margin-top: 20px;
 }
 
+.containerReserveActiveCube {
+  /* border: 3px solid black;  */
+  margin-top: 20px !important;
+  margin: 3px;
+  transform: scale(1.05);
+  box-shadow: 0 0 4px 0 black;
+  border-radius: 5px;
+}
+
 

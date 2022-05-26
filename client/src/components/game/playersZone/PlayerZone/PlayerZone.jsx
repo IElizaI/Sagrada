@@ -51,7 +51,7 @@ const PlayerZone = () => {
   return (
     <div className="container-player-zone">
       <div className="container-btn-other-stained-glass">
-        {otherPlayers ? (
+        {otherPlayers.length ? (
           <button className="btn-other-stained-glass" onClick={openModal}>
             Соперники
           </button>

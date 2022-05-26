@@ -8,6 +8,7 @@ const {
   GAME_STARTED,
   PLAYERS_SELECTED_PATTERNS,
   PUT_CUBE_FOR_STAINED_GLASS,
+  GAME_OVER,
 } = require('../socket/types');
 const router = require('express').Router();
 
@@ -48,14 +49,14 @@ const router = require('express').Router();
 //   res.json(firstPlayer);
 // });
 
-router.post('/cube/put', (req, res) => {
-  const { row, orderCell, raisedCube, activePlayer } = req.body;
+// router.post('/cube/put', (req, res) => {
+//   const { row, orderCell, raisedCube, activePlayer } = req.body;
 
-  console.log(row, orderCell, raisedCube, activePlayer);
-  const player = activePlayer === 'liza' ? 'dima' : 'liza';
+//   console.log(row, orderCell, raisedCube, activePlayer);
+//   const player = activePlayer === 'liza' ? 'dima' : 'liza';
 
-  res.json(player);
-});
+//   res.json(player);
+// });
 
 router.get('/lobby/:id', (req, res) => {
   const { id } = req.params;
@@ -129,6 +130,9 @@ router.post('/pattern/select', (req, res) => {
   const activePlayer = Rounds.getActivePlayer(gameId);
 
   const patterns = PlayerPatterns.getPatterns(gameId);
+  const commonGoals = GameRound.getCommonGoals(gameId);
+
+  console.log('goals--------------', commonGoals, GameRound.getPlayers(gameId));
 
   if (isAllPatternsSelected) {
     req.io.emit(
@@ -139,6 +143,7 @@ router.post('/pattern/select', (req, res) => {
         patterns,
         players: GameRound.getPlayers(gameId),
         activePlayer,
+        commonGoals,
       })
     );
   }
@@ -161,24 +166,35 @@ router.post('/create', (req, res) => {
 });
 
 router.post('/cube/stained_glass', (req, res) => {
-  const { gameId, cell, cube } = req.body;
+  const { gameId, cell, cube, pass } = req.body;
   const player = req.session.user.userId;
   // console.log(player, player, cell, cube);
   // console.log('+++++++++++++++++++++=', PlayerPatterns.patterns[0][0]);
 
-  // типо добавили в ячейку куб и отсылаем паттерн обновленный
-  PlayerPatterns.updatePatternCell(gameId, player, cell, cube);
-  const pattern = PlayerPatterns.getPattern(gameId, player);
-  GameRound.removeFromReserve(gameId, cube);
+  if (!pass) {
+    PlayerPatterns.updatePatternCell(gameId, player, cell, cube);
+    GameRound.removeFromReserve(gameId, cube);
+  }
+
   const activePlayer = GameRound.nextActivePlayer(gameId);
 
   const rounds = GameRound.getRounds(gameId);
+  console.log(rounds);
+  const pattern = PlayerPatterns.getPattern(gameId, player);
   const reserve = GameRound.getReserve(gameId);
-  // const reserve = GameRound.
-  // console.log(pattern);
-  res.send(true);
 
-  console.log(pattern);
+  if (rounds.length === 10) {
+    req.io.emit(
+      `game_${gameId}`,
+      getMessage(GAME_OVER, player, {
+        pattern,
+        rounds,
+        reserve,
+      })
+    );
+    res.send(true);
+    return;
+  }
 
   req.io.emit(
     `game_${gameId}`,
@@ -189,6 +205,8 @@ router.post('/cube/stained_glass', (req, res) => {
       rounds,
     })
   );
+
+  res.send(true);
 });
 
 router.get('/lobbies', (req, res) => {

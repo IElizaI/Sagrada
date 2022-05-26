@@ -10,7 +10,7 @@ const ActivePlayerCaption = () => {
     return <div className="active-player current">Выберите кубик</div>;
   }
 
-  const otherPlayer = players.find(({ id }) => activePlayer);
+  const otherPlayer = players ? players.find(({ id }) => activePlayer) : '';
 
   if (otherPlayer) {
     return (

@@ -51,14 +51,20 @@ const Main = () => {
             Логин
           </Link>
         )}
-        <Link
-          to="/"
-          type="button"
-          onClick={handleLogout}
-          className={classes.mainRegisterLink}
-        >
-          Выйти
-        </Link>
+        {user.login ? (
+          <Link
+            to="/"
+            type="button"
+            onClick={handleLogout}
+            className={classes.mainRegisterLink}
+          >
+            Выйти
+          </Link>
+        ) : (
+          <Link to="/register" className={classes.mainRegisterLink}>
+            Зарегистрироваться
+          </Link>
+        )}
         {user.login ? (
           <Link to="/lobbies" className={classes.mainPlayLink}>
             Играть

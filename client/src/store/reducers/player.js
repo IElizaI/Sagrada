@@ -24,7 +24,6 @@ const player = createReducer(initialState, (builder) => {
   builder.addCase(actions.setLogin, (state, action) => {
     state.login = action.payload;
   });
-  // action принимает payload с объектом c ключами id и color title text src
   builder.addCase(actions.setPersonalGoal, (state, action) => {
     state.personalGoal = action.payload;
   });
@@ -61,12 +60,28 @@ const player = createReducer(initialState, (builder) => {
   builder.addCase(actions.setstainedGlassForChoice, (state, action) => {
     state.stainedGlassChoice = action.payload;
   });
-  // action принимает payload с объектом кубика
+  // action принимает payload с индексом куба в резерве
   builder.addCase(actions.setRaisedCube, (state, action) => {
     state.raisedCube = action.payload;
   });
   // устанавливает поднятому кубику значение null
   builder.addCase(actions.resetRaisedCube, (state) => {
+    state.raisedCube = null;
+  });
+  builder.addCase(actions.removePlayer, (state) => {
+    state.login = null;
+    state.personalGoal = null;
+    state.windowFrame = null;
+    state.stainedGlass = null;
+    state.numberPoints = null;
+    state.privilegeСhips = null;
+    state.stainedGlassChoice = null;
+    state.spacedСubes = [
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+    ];
     state.raisedCube = null;
   });
 });

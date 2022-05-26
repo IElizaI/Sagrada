@@ -30,17 +30,4 @@ export const resetRaisedCube = createAction('user/raised_cube/reset');
 
 export const setCurrentPlayerPattern = createAction('user/pattern/set');
 
-// экшен берет с бэка два объекта витража на выбор и диспачит в state
-// export const setstainedGlassForChoiceThunk =
-//   (numberUsers, array) => async (dispatch) => {
-//     console.log(numberUsers, array);
-//     const stainedGlassesForPlayer = await axios({
-//       method: 'post',
-//       url: 'http://localhost:3001/game/stainedGlass',
-//       data: {
-//         numberUsers,
-//         array,
-//       },
-//     });
-//     dispatch(setstainedGlassForChoice(stainedGlassesForPlayer.data));
-//   };
+export const removePlayer = createAction('user/remove');

@@ -1,4 +1,6 @@
 const PlayerPatterns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const CommonGoals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const PersonalGoals = [1, 2, 3, 4, 5];
 
 class Rounds {
   gameRounds = {};
@@ -59,10 +61,14 @@ class Rounds {
       activePlayer: null,
       reserve: null,
       patternsForSelection: null,
+      commonGoals: null,
+      personalGoals: null,
     };
     this.setTurnOrder(gameId);
     this.nextActivePlayer(gameId);
     this.selectPatternsForPlayers(gameId);
+    this.setCommonGoals(gameId);
+    this.setPersonalGoals(gameId);
     return this.gameRounds[gameId];
   }
 
@@ -245,53 +251,113 @@ class Rounds {
       numberRounds -= 1;
     }
     this.gameRounds[gameId].playersQueue = orderMoves;
+    console.log(orderMoves);
     return orderMoves;
   }
 
   nextActivePlayer(gameId) {
     if (this.gameRounds[gameId].playersQueue.length > 0) {
-      if (this.gameRounds[gameId].playersQueue[0].length === 0) {
-        this.nextRound(gameId);
-        this.gameRounds[gameId].playersQueue =
-          this.gameRounds[gameId].playersQueue.slice(1);
-      }
       const first = this.gameRounds[gameId].playersQueue[0][0];
       this.gameRounds[gameId].playersQueue[0] =
         this.gameRounds[gameId].playersQueue[0].slice(1);
 
+      if (this.gameRounds[gameId].playersQueue[0].length === 0) {
+        this.gameRounds[gameId].playersQueue =
+          this.gameRounds[gameId].playersQueue.slice(1);
+        if (this.gameRounds[gameId].playersQueue.length > 0) {
+          this.nextRound(gameId);
+        } else {
+          this.gameEnd(gameId);
+        }
+      }
       this.gameRounds[gameId].activePlayer = first;
       return first;
     }
     return null;
   }
 
-  nextRound(gameId) {
+  gameEnd(gameId) {
+    this.moveRestCubeToRound(gameId);
+    this.gameRounds[gameId].reserve = null;
+  }
+
+  moveRestCubeToRound(gameId) {
     const reserve = this.getReserve(gameId);
     this.gameRounds[gameId].rounds = [
       ...this.gameRounds[gameId].rounds,
       reserve[0],
     ];
+  }
+
+  nextRound(gameId) {
+    this.moveRestCubeToRound(gameId);
     this.rollTheDice(gameId);
   }
-}
 
+  static randomCards(num, array) {
+    const arrayRandomElem = [];
+    if (num > array.length) {
+      return false;
+    }
+
+    const arrayNumbers = [];
+    do {
+      const randomNum = Rounds.getRandomInt(0, array.length - 1);
+
+      if (!arrayNumbers.includes(randomNum)) {
+        arrayNumbers.push(randomNum);
+      }
+    } while (arrayNumbers.length !== num);
+
+    arrayNumbers.forEach((elem) => {
+      arrayRandomElem.push(array[elem]);
+    });
+
+    console.log(arrayRandomElem);
+    return arrayRandomElem;
+  }
+
+  static getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  setCommonGoals(gameId) {
+    const commonGoals = Rounds.randomCards(3, CommonGoals);
+    console.log(commonGoals);
+    this.gameRounds[gameId].commonGoals = commonGoals;
+  }
+
+  getCommonGoals(gameId) {
+    console.log(this.gameRounds[gameId].commonGoals);
+    return this.gameRounds[gameId].commonGoals;
+  }
+
+  setPersonalGoals(gameId) {
+    const players = this.getPlayers(gameId);
+    const personalGoals = Rounds.randomCards(players.length, PersonalGoals);
+    console.log(personalGoals);
+    this.gameRounds[gameId].players = this.gameRounds[gameId].players.map(
+      (player, index) => {
+        return {
+          ...player,
+          personalGoal: personalGoals[index],
+        };
+      }
+    );
+  }
+}
 const rounds = new Rounds();
-// console.log(rounds.addGame(45, ['Вика', 'Вася', 'Петя', 'Даша']))
-// console.log(rounds.addRound(45, { color: 'red', number: 'two' }))
-// console.log(rounds.gameRounds[45])
-// console.log(rounds.getRound(45))
-// console.log(rounds.changeDiceInRound(45, 1, { color: 'yellow', number: 'six' }))
-// console.log(rounds.gameRounds[45])
-// console.log(rounds.setReserve(45, [{ color: 'red', number: 'two' },{color: 'green', number: 'two' },{ color: 'red', number: 'two' },{ color: 'red', number: 'two' },{ color: 'red', number: 'two' }]))
-// console.log(rounds.gameRounds[45])
-// console.log(rounds.removeFromReserve(45, {color: 'green', number: 'two'}))
-// console.log(rounds.gameRounds[45])
-// console.log(Rounds.numberOfGivenCubes(2))
-// console.log(rounds.giveArrayAvailableCubes(45))
-// console.log(rounds.rollTheDice(45, 2))
-// console.log(rounds.setTurnOrder(45))
-// console.log(rounds.setTurnOrder(45))
-// console.log(rounds.getActivePlayer(45))
-// console.log(rounds.nextActivePlayer(45))
+// console.log(
+//   rounds.addGame(45, [
+//     { id: 1, login: 'Вика' },
+//     { id: 2, login: 'Вася' },
+//     { id: 3, login: 'Петя' },
+//     { id: 4, login: 'Даша' },
+//   ])
+// );
+// console.log(rounds.setCommonGoals(45));
+// console.log(rounds.getCommonGoals(45));
+// console.log(rounds.setPersonalGoals(45));
+// console.log(rounds.getPlayers(45));
 
 module.exports = rounds;
