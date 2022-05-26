@@ -1,20 +1,21 @@
-.register-form {
+.loginText{
+  font-weight: 600;
+}
+
+.loginForm {
   width: 50%;
   margin: 0 auto;
 }
 
-.register-text{
-  font-weight: 600;
-}
 
 /* -------кнопка------- */
-.register-btn-div {
+.btnDiv {
   /* margin: 0 auto;
   display: block; */
   text-align: center;
 }
 
-.register-btn {
+.btn {
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -33,7 +34,7 @@
   cursor: pointer;
   transition: 1.5s;
 }
-.register-btn:before, .register-btn:after {
+.btn:before, .btn:after {
   content: "";
   position: absolute;
   height: 200px;
@@ -46,17 +47,17 @@
   z-index: -1;
   transform: scale(0);
 }
-.register-btn:before {
+.btn:before {
   background: #eaeded;
   transition: .8s ease-out;
 }
-.register-btn:after {
+.btn:after {
   transition: .4s ease-in .3s;
 }
-.register-btn:hover {
+.btn:hover {
   color: #532831;
 }
-.register-btn:hover:before, .register-btn:hover:after {
+.btn:hover:before, .btn:hover:after {
   opacity: 1;
   transform: scale(4);
 }

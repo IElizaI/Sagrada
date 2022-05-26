@@ -39,35 +39,37 @@ const Main = () => {
     <div className={classes.mainPage}>
       <div className={classes.mainImgDiv}>
         <img src={img} alt="sagrada-img" className={classes.mainImg} />
-        <Link to="/rules" type="button" className={classes.mainRulesLink}>
-          Правила
-        </Link>
-        {user.login ? (
-          <div type="button" className={classes.mainLoginLink}>
-            Привет, {user.login}!
-          </div>
-        ) : (
-          <Link to="/login" type="button" className={classes.mainLoginLink}>
-            Логин
+        <div className={classes.mainLinks}>
+          <Link to="/rules" type="button" className={classes.mainLink}>
+            Правила
           </Link>
-        )}
-        <Link
-          to="/"
-          type="button"
-          onClick={handleLogout}
-          className={classes.mainRegisterLink}
-        >
-          Выйти
-        </Link>
-        {user.login ? (
-          <Link to="/lobbies" className={classes.mainPlayLink}>
-            Играть
+          {user.login ? (
+            <div type="button" className={classes.mainLink}>
+              Привет, {user.login}!
+            </div>
+          ) : (
+            <Link to="/login" type="button" className={classes.mainLink}>
+              Зарегистрироваться
+            </Link>
+          )}
+          <Link
+            to="/"
+            type="button"
+            onClick={handleLogout}
+            className={classes.mainLink}
+          >
+            Выйти
           </Link>
-        ) : (
-          <Link to="/login" className={classes.mainPlayLink}>
-            Играть
-          </Link>
-        )}
+          {user.login ? (
+            <Link to="/lobbies" className={classes.mainLink}>
+              Играть
+            </Link>
+          ) : (
+            <Link to="/login" className={classes.mainLink}>
+              Играть
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

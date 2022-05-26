@@ -42,13 +42,27 @@ const Lobbies = () => {
 
   return (
     <div className="container-lobbies">
-      {lobbies.map((lobby) => (
+      {/* {lobbies.map((lobby) => (
         <Link to={'/lobby/' + lobby.id} key={lobby.id}>
           {lobby.creator.login}'s lobby (#{lobby.id})
         </Link>
-      ))}
+      ))} */}
+      <ol className="lobbies-list">
+        {lobbies.map((lobby) => (
+          <li><p>
+            <Link className="lobbies-btn-text" to={'/lobby/' + lobby.id} key={lobby.id}>
+              {lobby.creator.login}'s lobby (#{lobby.id})
+            </Link>
+          </p></li>
+        ))}
+      </ol>
 
-      <div onClick={onPlayClick}>Создать лобби</div>
+      {/* <div onClick={onPlayClick}>Создать лобби</div> */}
+      <div className="lobbies-btn-div">
+        <button className="lobbies-btn" onClick={onPlayClick}>
+          <div>Создать лобби</div>
+        </button>
+      </div>
     </div>
   );
 };

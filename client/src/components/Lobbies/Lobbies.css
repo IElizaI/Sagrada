@@ -1,4 +1,118 @@
 .container-lobbies {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+}
+
+
+
+/* -------кнопка------- */
+.lobbies-btn-text {
+  color: #fdfbfb;
+}
+
+.lobbies-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding: 10px 40px;
+  margin: 0 20px;
+  /* font-family: 'Montserrat Alternates', sans-serif; */
+  font-weight: 600;
+  line-height: 20px;
+  color: #fdfbfb;
+  font-size: 15px;
+  text-transform: uppercase;
+  background: rgb(61, 60, 56);
+  border-width: 0;
+  box-shadow: 5px 5px 0 #532831;
+  outline: none;
+  cursor: pointer;
+  transition: 1.5s;
+  width: 300px;
+  margin-top: 20px;
+}
+.lobbies-btn:before, .lobbies-btn:after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -50%;
+  margin-top: -100px;
+  top: 50%;
+  width: 200px;
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: -1;
+  transform: scale(0);
+}
+.lobbies-btn:before {
+  background: #eaeded;
+  transition: .8s ease-out;
+}
+.lobbies-btn:after {
+  transition: .4s ease-in .3s;
+}
+.lobbies-btn:hover {
+  color: #532831;
+}
+.lobbies-btn:hover:before, .lobbies-btn:hover:after {
+  opacity: 1;
+  transform: scale(4);
+}
+
+
+/* -------список-------- */
+.lobbies-list {
+  margin: 30px auto;
+  counter-reset: li; 
+  list-style: none; 
+  font: 14px;
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.lobbies-list a {
+  text-decoration: none;
+  color: #f6f6f6;
+}
+
+.lobbies-list p {
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  margin: .5em 0;
+  background: #b7b1ac;
+  color: rgb(72, 71, 71);
+  text-decoration: none;
+  border-radius: .3em;
+  transition: .3s ease-out;
+}
+.lobbies-list p:hover {
+  background: #dedede;
+}
+.lobbies-list p:hover:before {transform: rotate(360deg);}
+.lobbies-list p:before {
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #8FD4C1;
+  color: #f6f6f6;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: .3em solid white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all .3s ease-out;
+}
+
+
+@media screen and (min-width: 700px) {
+  .lobbies-list {
+    width: 40%;
+  }
 }

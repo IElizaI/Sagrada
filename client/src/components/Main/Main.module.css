@@ -11,6 +11,12 @@
 
 .mainImgDiv {
   position: relative;
+  /* background-image: url("../../img/main-page/main.png");
+  height: 500px; /* You must set a specified height */
+  /* background-position: center; 
+  background-repeat: no-repeat;  */
+  display: flex;
+  justify-content: center;
 }
 
 .mainImg {
@@ -19,7 +25,21 @@
   height: 100vh;
 }
 
-.mainRulesLink {
+.mainLinks {
+  position: absolute;
+  top: 45%;
+  /* left: 41%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainLink {
+  margin: 5px;
+}
+
+/* .mainRulesLink {
   position: absolute;
   top: 40%;
   left: 41%;
@@ -41,7 +61,7 @@
   position: absolute;
   top: 70%;
   left: 41%;
-}
+} */
 
 @media screen and (max-width: 1000px) {
   .mainPage {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import socket from '../../../features/socket';
 import { loadLobby } from '../../../store/actions/lobby';
-import Game from '../Game/Game';
+// import Game from '../Game/Game';
 import classes from './Players.module.css';
 import axios from 'axios';
 import {
@@ -84,7 +84,7 @@ const Players = () => {
       <ol className={classes.rounded}>
         {lobby.players.map((player) => (
           <li key={player.id}>
-            <p>{player.login}</p>
+            <p className={classes.playerLogin}>{player.login}</p>
           </li>
         ))}
       </ol>
