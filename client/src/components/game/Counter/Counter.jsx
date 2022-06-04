@@ -11,7 +11,6 @@ const Counter = () => {
 
   return (
     <div className={classes.roundCubes}>
-      {/* {counterCells} */}
       {roundsTemplate.map((round, index) => {
         const roundCube = rounds[index];
         return roundCube ? (
@@ -19,7 +18,7 @@ const Counter = () => {
             <Dice
               color={roundCube.color}
               number={roundCube.number}
-              key={index}
+              key={round}
             />
           </div>
         ) : (

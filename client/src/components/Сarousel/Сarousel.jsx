@@ -2,7 +2,6 @@ import React from 'react';
 import './Сarousel.css';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
-// import CommonGoal from '../game/CommonGoal/CommonGoal';
 import CommonGoal from '../game/GoalAndToolButtons/CommonGoal/CommonGoal';
 
 const Сarousel = ({ arrayCommonGoals }) => {
@@ -15,18 +14,11 @@ const Сarousel = ({ arrayCommonGoals }) => {
   };
 
   return (
-    // <Slider {...settings}>
-    //   {arrayCommonGoals.map((card) => {
-    //     return <CommonGoal card={card} key={card.id} />;
-    //   })}
-    // </Slider>
-    // <div className="sliderDiv">
     <Slider {...settings}>
       {arrayCommonGoals.map((card) => {
         return <CommonGoal card={card} key={card.id} />;
       })}
     </Slider>
-    // </div>
   );
 };
 

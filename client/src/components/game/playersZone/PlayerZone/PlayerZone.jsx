@@ -4,7 +4,6 @@ import './PlayerZone.css';
 import Slider from 'react-slick';
 import PatternStainedGlass from '../PatternStainedGlass/PatternStainedGlass';
 import { useSelector } from 'react-redux';
-import { StainedGlass } from '../../../../constans/constans';
 import StainedGlassOfOtherPlayers from '../StainedGlassOfOtherPlayers/StainedGlassOfOtherPlayers';
 
 const customStyles = {

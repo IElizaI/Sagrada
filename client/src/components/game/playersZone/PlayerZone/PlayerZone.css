@@ -13,7 +13,6 @@
 
 .btn-other-stained-glass {
   outline: none;
-  /* border: 1px solid black; */
   background-color: #fff;
   width: 150px;
   height: 37px;
@@ -23,15 +22,6 @@
   border-radius: 3px;
   border: 1px solid black;
 }
-
-/* .btn-other-stained-glass:hover {
-  background-color: bisque;
-} */
-
-/* .btn-other-stained-glass:active {
-  transition: none;
-  font-weight: 600;
-} */
 
 .btn-other-stained-glass-close {
   border-radius: 3px;

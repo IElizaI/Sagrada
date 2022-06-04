@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { useDispatch, useSelector } from 'react-redux';
 import './ButtonPersonalGoal.css';
 import PersonalGoal from '../PersonalGoal/PersonalGoal';
 
@@ -18,9 +17,6 @@ const customStyles = {
 };
 
 const ButtonPersonalGoal = () => {
-  const dispatch = useDispatch();
-  const statePersonalGoal = useSelector((state) => state.player.personalGoal);
-
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -49,7 +45,6 @@ const ButtonPersonalGoal = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
         <button
           className="btn-personal-goal btn-personal-goal-close"
           onClick={closeModal}

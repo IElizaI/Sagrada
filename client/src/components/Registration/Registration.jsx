@@ -10,21 +10,6 @@ export default function Registration() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const Registration = () => {
-    return (
-      <div>
-        Registration
-        <FormItem
-          title="Регистрация"
-          input={{ email: 'email', password: 'Пароль' }}
-          button={{ submit: 'Зарегистрироваться', redirect: 'Войти' }}
-          link="/login"
-          formType="registration"
-        />
-      </div>
-    );
-  };
-
   const registrationHandler = async (e) => {
     e.preventDefault();
 
@@ -103,9 +88,6 @@ export default function Registration() {
             }
           />
         </div>
-        {/* <button type="submit" className="btn btn-primary">
-          Submit
-        </button> */}
         <div className="register-btn-div">
           <button type="submit" className="register-btn">
             <div>Зарегистрироваться</div>

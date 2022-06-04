@@ -39,13 +39,11 @@ const ButtonInstruments = () => {
         Инструменты
       </button>
       <Modal
-        // isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
         <button
           className="btn-instruments btn-instruments-close"
           onClick={closeModal}

@@ -1,7 +1,3 @@
-/* https://html5css.ru/howto/howto_js_topnav.php */
-/* https://html5book.ru/krasivye-knopki-dlya-sayta-chast-3/ */
-
-
 /* -------список-------- */
 .rounded {
   width: 60%;
@@ -35,8 +31,6 @@
   left: -1.3em;
   top: 50%;
   margin-top: -1.3em;
-  /* background: #8FD4C1; */
-  /* background: #747b79; */
   background: #e54724;
   color: #f6f6f6;
   height: 2em;
@@ -68,7 +62,6 @@
   z-index: 1;
   padding: 10px 40px;
   margin: 0 20px;
-  /* font-family: 'Montserrat Alternates', sans-serif; */
   font-weight: 600;
   line-height: 20px;
   color: #fdfbfb;

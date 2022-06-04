@@ -116,12 +116,6 @@ export const PersonalGoals = [
   },
 ];
 
-// const countScore = (player) => {
-//   const playerPersonalGoal = PersonalGoals.find(
-//     ({ id }) => id === player.personalGoal
-//   );
-// };
-
 export const StainedGlass = [
   {
     id: 1,

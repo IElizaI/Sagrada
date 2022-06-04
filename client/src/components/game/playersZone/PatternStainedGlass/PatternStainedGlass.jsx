@@ -12,8 +12,6 @@ const PatternStainedGlass = () => {
   const activePlayer = useSelector((state) => state.game.activePlayer);
   const user = useSelector((state) => state.user.id);
   const rounds = useSelector((state) => state.game.rounds);
-
-  const droppedCubes = useSelector((state) => state.game.droppedCubes);
   const playerStainedGlassId = useSelector(
     (state) => state.player.stainedGlass
   );

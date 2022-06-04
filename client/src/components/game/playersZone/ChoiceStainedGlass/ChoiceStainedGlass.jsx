@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import StainedGlassflip from '../StainedGlassflip/StainedGlassflip';
 import './ChoiceStainedGlass.css';
 import { getApiUrl, StainedGlass } from '../../../../constans/constans';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setStainedGlass,
-  setstainedGlassForChoiceThunk,
-} from '../../../../store/actions/player';
+import { setStainedGlass } from '../../../../store/actions/player';
 import axios from 'axios';
-import socket from '../../../../features/socket';
-
 const ChoiceStainedGlass = () => {
   const dispatch = useDispatch();
   const lobby = useSelector((state) => state.lobby);

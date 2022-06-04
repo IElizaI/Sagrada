@@ -286,17 +286,6 @@ const CellPatternStainedGlass = ({ cell, row, orderCell, cube }) => {
           <Dice color={cube.color} number={cube.number} size={45} />
         </div>
       )}
-      {/* {!cube ? (
-        cell ? (
-          <img src={Cells[cell]} alt={`${cell}`} />
-        ) : (
-          ''
-        )
-      ) : (
-        <div className="dice-in-cell">
-          <Dice color={cube.color} number={cube.number} size={45} />
-        </div>
-      )} */}
     </div>
   );
 };

@@ -31,12 +31,9 @@ const Game = () => {
   const params = useParams();
   const lobby = useSelector((state) => state.lobby);
   const user = useSelector((state) => state.user);
-  const gamePlayers = useSelector((state) => state.game.players);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const rounds = useSelector((state) => state.game.rounds);
-  let gameOver;
-
   useEffect(() => {
     socket.join('game_' + params.id, (message) => {
       if (message.type === 'PLAYERS_SELECTED_PATTERNS') {

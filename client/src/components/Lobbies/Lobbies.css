@@ -19,7 +19,6 @@
   z-index: 1;
   padding: 10px 40px;
   margin: 0 20px;
-  /* font-family: 'Montserrat Alternates', sans-serif; */
   font-weight: 600;
   line-height: 20px;
   color: #fdfbfb;
@@ -83,9 +82,7 @@
   display: block;
   padding: .4em .4em .4em 2em;
   margin: .5em 0;
-  /* background: #b7b1ac; */
   background: #ebeaea;
-  /* color: rgb(72, 71, 71); */
   color: rgb(68, 67, 67);
   text-decoration: none;
   border-radius: .3em;
@@ -116,5 +113,11 @@
 @media screen and (min-width: 700px) {
   .lobbies-list {
     width: 40%;
+  }
+}
+
+@media (max-width: 700px) {
+  .lobbies-list p {
+    padding: 10px 60px;
   }
 }

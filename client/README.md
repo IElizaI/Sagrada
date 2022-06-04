@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# **Саграда - веб версия абстрактной, логической, настольной игры**
+### **[Ссылка на приложение](http://46.166.93.68:3010/main)** :point_left::point_left::point_left:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Саграда переносит участников в барселонскую Саграду. Вы художник - витражист. Вы соревнуетесь с товарищами в создании самого красивого витража для церкви Саргада Фамилия.
 
-## Available Scripts
+![](https://i.imgur.com/DMThTti.png)
+<p>&nbsp;</p>
 
-In the project directory, you can run:
 
-### `npm start`
+# **Стек технологий**
+### JavaScript, React, Redux (toolkit, thunk), Axios, react-modal, react-router-dom, react-slick, Node.js, Cors, Express, Socket.IO, express-session, PostgreSQL, Sequelize ORM, Bcrypt.
+<p>&nbsp;</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Над проектом так же работали**: [Merdzhen](https://github.com/Merdzhen) [NickCamelCase82](https://github.com/NickCamelCase82)
+<p>&nbsp;</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# **Процесс игры**
++ Чтобы поиграть, нужно зарегистрироваться.
++ На главной странице есть правила игры.
++ В игре могут принять участие от 1 до 4х человек. 
++ Один участник создает лобби с игрой, остальные подключаются к нему.
++ Начать игру может человек создавший ее.
++ После создания игры всем участникам предоставляется выбор одного из двух двусторонних витражей.
++ Когда все выберут витражи, генерируются 3 общие цели для всех и по одной личный каждому.
++ Так же определяется первый игрок и порядок хода на всю игру.
++ Активному игроку предоставляется возможность выбрать другой кубик.
++ Рядом со своим витражом можно открыть модальное окно и посмотреть планшеты других игроков в реальном времени.
++ Есть возможность пропустить ход.
++ В конце 10 раунда выводятся результаты.
++ Присутствует возможность выйти из игры с обновлением всего состояния redux на начальное.
+  
+![](https://i.imgur.com/9EtuTpA.png)
+<p>&nbsp;</p>
 
-### `npm test`
+# **Кратко о правилах**
++ Выполнение общих и личных целей гарантирует более высокий результат в конце игры.
++ На белую ячейку витража можно выставлять любой кубик, на остальные же - кубик с указанным типом.
++ Первый ход всегда с краю.
++ В последующие ходы кубики можно размещать на одну клетку горизонтально, вертикально и диагонально от уже выставленных.
++ На соседних клетках горизонтально или вертикально не могут находиться кубики одного цвета или одного номера
+<p>&nbsp;</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# **Как запустить приложение**
+### Для работы сайта необходим Node.js и PostgreSQL.
+### В проекте должен быть файл .env с содержанием на основе шаблона:
+```
+DATABASE_URL=postgres://user:password@hostname:port/dbname
+PORT=3001
+```
++ `npm i`
++ `npx sequelize init`
++ `npx sequelize db:create`
++ `npx sequelize db:migrate`
++ в папке server `npm run dev`
++ в папке client `npm start`

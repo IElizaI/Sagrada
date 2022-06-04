@@ -2,28 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getApiUrl } from '../../constans/constans';
-import FormItem from '../FormItem/FormItem';
 import classes from './Login.module.css';
 
 export default function Login() {
   const inputs = useSelector((store) => store.loginInputs);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  // const Login = () => {
-  //   return (
-  //     <div>
-  //       Вход
-  //       <FormItem
-  //         title="Вход"
-  //         input={{ email: 'email', password: 'Пароль' }}
-  //         button={{ submit: 'Войти', redirect: 'Регистрация' }}
-  //         link="/register"
-  //         formType="login"
-  //       />
-  //     </div>
-  //   );
-  // };
 
   const loginHandler = async (e) => {
     e.preventDefault();

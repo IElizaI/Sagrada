@@ -1,7 +1,6 @@
 import { io } from 'socket.io-client';
 
 const Socket = () => {
-  // useEffect(() => {
   const socket = io('ws://localhost:3001');
 
   return {

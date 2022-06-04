@@ -57,7 +57,7 @@ const Players = () => {
   if (!lobby.players) return <div>Not Found</div>;
 
   const handleCreateGame = async () => {
-    const response = await axios.post(
+    await axios.post(
       getApiUrl('/game/create/'),
       {
         gameId: params.id,

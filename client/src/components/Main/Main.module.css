@@ -10,12 +10,7 @@
 }
 
 .mainImgDiv {
-  position: relative;
-  /* background-image: url("../../img/main-page/main.png");
-  height: 500px; /* You must set a specified height */
-  /* background-position: center; 
-  background-repeat: no-repeat;  */
-  display: flex;
+  position: relative;display: flex;
   justify-content: center;
 }
 
@@ -28,7 +23,6 @@
 .mainLinks {
   position: absolute;
   top: 45%;
-  /* left: 41%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,30 +37,6 @@
   font-family: 'Balsamiq Sans', cursive;
 }
 
-/* .mainRulesLink {
-  position: absolute;
-  top: 40%;
-  left: 41%;
-}
-
-.mainLoginLink {
-  position: absolute;
-  top: 50%;
-  right: 65%;
-}
-
-.mainRegisterLink {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-}
-
-.mainPlayLink {
-  position: absolute;
-  top: 70%;
-  left: 41%;
-} */
-
 @media screen and (max-width: 1000px) {
   .mainPage {
     font-size: 26px;
@@ -79,20 +49,8 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 400px) {
   .mainPage {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .mainPage {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 250px) {
-  .mainPage {
-    font-size: 12px;
+    font-size: 20px;
   }
 }
