@@ -1,0 +1,108 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginText{
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.loginForm {
+  width: 50%;
+  margin: 0 auto;
+  max-width: 400px;
+  box-shadow: 0 0 7px 0 #8d8d8d;
+  padding: 30px;
+  border-radius: 10px;
+  transition: box-shadow .3s;
+}
+
+.loginForm:hover {
+  box-shadow: 0 0 15px 0 #8d8d8d;
+}
+
+
+/* -------кнопка------- */
+.btnDiv {
+  /* margin: 0 auto;
+  display: block; */
+  text-align: center;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding: 10px 40px;
+  margin: 0 20px;
+  /* font-family: 'Montserrat Alternates', sans-serif; */
+  font-weight: 600;
+  line-height: 20px;
+  color: #fdfbfb;
+  font-size: 15px;
+  text-transform: uppercase;
+  background: rgb(61, 60, 56);
+  border-width: 0;
+  box-shadow: 5px 5px 0 #532831;
+  outline: none;
+  cursor: pointer;
+  transition: 1.5s;
+}
+.btn:before, .btn:after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -50%;
+  margin-top: -100px;
+  top: 50%;
+  width: 200px;
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: -1;
+  transform: scale(0);
+}
+.btn:before {
+  background: #eaeded;
+  transition: .8s ease-out;
+}
+.btn:after {
+  transition: .4s ease-in .3s;
+}
+.btn:hover {
+  color: #532831;
+}
+.btn:hover:before, .btn:hover:after {
+  opacity: 1;
+  transform: scale(4);
+}
+
+
+@media (max-width: 600px) {
+  .loginForm {
+    width: 60%;
+    max-width: initial;
+    margin: 0 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .loginForm {
+    width: 90%;
+    margin: 0 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .loginForm {
+    max-width: 300px;
+  }
+  .loginForm h1 {
+    font-size: 26px;
+  }
+}

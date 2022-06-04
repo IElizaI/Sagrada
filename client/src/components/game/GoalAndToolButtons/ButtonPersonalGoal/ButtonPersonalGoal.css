@@ -1,0 +1,20 @@
+.btn-personal-goal {
+  outline: none;
+  border: 1px solid black;
+  background-color: #fff;
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.btn-personal-goal:active {
+  font-size: 1.1rem;
+}
+
+.btn-personal-goal-close {
+  border-radius: 3px;
+  width: 100px;
+}

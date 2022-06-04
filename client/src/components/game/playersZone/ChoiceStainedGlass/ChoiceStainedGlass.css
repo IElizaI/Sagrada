@@ -1,0 +1,5 @@
+.container-choice-stained-glass {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}

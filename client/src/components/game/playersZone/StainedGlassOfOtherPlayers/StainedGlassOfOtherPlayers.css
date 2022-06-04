@@ -1,0 +1,13 @@
+.container-other-players-stained-glass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 60px;
+}
+
+.login {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 10px;
+}

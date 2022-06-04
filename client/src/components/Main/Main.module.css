@@ -1,0 +1,56 @@
+.mainPage {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(196, 194, 206, 0.678);
+  font-family: 'Pacifico', sans-serif;
+  font-size: 30px;
+}
+
+.mainImgDiv {
+  position: relative;display: flex;
+  justify-content: center;
+}
+
+.mainImg {
+  max-height: 100%;
+  min-height: 100%;
+  height: 100vh;
+}
+
+.mainLinks {
+  position: absolute;
+  top: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  
+}
+
+.mainLink {
+  margin: 5px;
+  color: black;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+@media screen and (max-width: 1000px) {
+  .mainPage {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mainPage {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mainPage {
+    font-size: 20px;
+  }
+}
